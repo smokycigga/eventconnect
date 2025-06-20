@@ -352,7 +352,7 @@ const BookingConfirmation = () => {
               className="inline-flex items-center text-primary hover:text-primary-700 transition-smooth"
             >
               <Icon name="Mail" size={16} className="mr-2" />
-              support@eventconnect.com
+              support@eventful.com
             </a>
             <a
               href="tel:+911234567890"
