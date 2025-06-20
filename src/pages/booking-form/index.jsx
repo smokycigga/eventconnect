@@ -21,9 +21,9 @@ const BookingForm = () => {
   // Mock organizer data from navigation state or default
   const organizerData = location.state?.organizer || {
     id: 1,
-    name: "Elite Events & Celebrations",
+    name: "Kalinga Events Co.",
     image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&h=300&fit=crop",
-    location: "Mumbai, Maharashtra",
+    location: "Bhubaneswar,Odisha",
     rating: 4.8,
     tagline: "Creating unforgettable moments with precision and style"
   };
