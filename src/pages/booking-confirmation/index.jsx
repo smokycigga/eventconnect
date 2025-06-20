@@ -348,7 +348,7 @@ const BookingConfirmation = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:support@eventconnect.com"
+              href="mailto:support@eventful.com"
               className="inline-flex items-center text-primary hover:text-primary-700 transition-smooth"
             >
               <Icon name="Mail" size={16} className="mr-2" />
