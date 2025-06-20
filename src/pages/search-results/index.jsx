@@ -100,7 +100,7 @@ const SearchResults = () => {
       id: 6,
       name: "Konark Luxury Event Designers",
       thumbnail: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=400&h=300&fit=crop",
-      location: "Konark, Odisha"
+      location: "Konark, Odisha",
       rating: 4.5,
       reviewCount: 92,
       tagline: "Innovative themes and creative event solutions",
