@@ -11,14 +11,12 @@ const FilterSidebar = ({ filters, onFilterChange, onClearAll, isMobile = false }
   });
 
   const locations = [
-    'Mumbai, Maharashtra',
-    'Delhi, NCR',
-    'Bangalore, Karnataka',
-    'Pune, Maharashtra',
-    'Chennai, Tamil Nadu',
-    'Hyderabad, Telangana',
-    'Kolkata, West Bengal',
-    'Ahmedabad, Gujarat'
+    'Bhubaneswar, Odisha',
+    'Cuttack, Odisha',
+    'Puri,Odisha',
+    'Sambalpur,Odisha',
+    'Konark,Odisha',
+  
   ];
 
   const categories = [
