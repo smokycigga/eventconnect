@@ -23,7 +23,7 @@ const BookingConfirmation = () => {
     eventDetails: {
       date: "2024-02-15",
       time: "6:00 PM",
-      location: "Grand Ballroom, Hotel Taj",
+      location: "IIIT Bhubaneswar",
       eventType: "Corporate Event",
       guestCount: "150-200 people"
     },
