@@ -43,7 +43,7 @@ const PlatformIntroduction = () => {
               Why Choose EventFul?
             </h2>
             <p className="text-lg text-text-secondary mb-8">
-              We're not just another booking platform. EventConnect acts as your trusted intermediary, ensuring every interaction is professional, secure, and results in the perfect event for your special occasion.
+              We're not just another booking platform. EventFul acts as your trusted intermediary, ensuring every interaction is professional, secure, and results in the perfect event for your special occasion.
             </p>
             
             <div className="space-y-6">
