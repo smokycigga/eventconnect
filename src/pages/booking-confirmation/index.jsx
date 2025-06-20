@@ -16,7 +16,7 @@ const BookingConfirmation = () => {
     submittedAt: new Date(),
     expectedResponse: "24-48 hours",
     organizer: {
-      name: "Elite Event Planners",
+      name: "Kalinga Events Co.",
       image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&h=300&fit=crop",
       location: "Bhubaneswar,Odisha"
     },
