@@ -28,8 +28,8 @@ const BookingConfirmation = () => {
       guestCount: "150-200 people"
     },
     userDetails: {
-      name: "Rajesh Kumar",
-      email: "rajesh.kumar@email.com",
+      name: "Sumit Kumar Jena",
+      email: "sumitjena@gmail.com",
       phone: "+91 98765 43210"
     },
     message: "Looking for a professional corporate event setup with catering and entertainment arrangements for our annual company celebration."
@@ -38,15 +38,15 @@ const BookingConfirmation = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Priya Sharma",
+      name: "Abhijit Dora",
       event: "Wedding Reception",
       rating: 5,
-      comment: "EventConnect made finding the perfect wedding planner so easy! The mediated process gave me confidence that everything would be handled professionally.",
+      comment: "EventFul made finding the perfect wedding planner so easy! The mediated process gave me confidence that everything would be handled professionally.",
       image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=60&h=60&fit=crop&crop=face"
     },
     {
       id: 2,
-      name: "Amit Patel",
+      name: "Priyam Priyanshu Mohanty",
       event: "Corporate Launch",
       rating: 5,
       comment: "The booking process was seamless and the admin team kept us updated throughout. Our product launch was executed flawlessly!",
@@ -54,7 +54,7 @@ const BookingConfirmation = () => {
     },
     {
       id: 3,
-      name: "Sneha Reddy",
+      name: "Aditya Narayan Sahu",
       event: "Birthday Party",
       rating: 5,
       comment: "From booking to execution, everything was perfect. The organizer they connected us with exceeded all our expectations!",
