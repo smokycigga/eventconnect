@@ -40,7 +40,7 @@ const PlatformIntroduction = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
-              Why Choose EventConnect?
+              Why Choose EventFul?
             </h2>
             <p className="text-lg text-text-secondary mb-8">
               We're not just another booking platform. EventConnect acts as your trusted intermediary, ensuring every interaction is professional, secure, and results in the perfect event for your special occasion.
@@ -106,7 +106,7 @@ const PlatformIntroduction = () => {
         {/* How It Works */}
         <div className="mt-16">
           <h3 className="text-2xl md:text-3xl font-bold text-text-primary text-center mb-12">
-            How EventConnect Works
+            How EventFul Works
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
