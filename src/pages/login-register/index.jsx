@@ -29,8 +29,6 @@ const LoginRegister = () => {
 
   const handleSuccessfulAuth = (userData) => {
     setIsAuthenticated(true);
-    localStorage.setItem('authToken', userData.token);
-    localStorage.setItem('userData', JSON.stringify(userData));
     navigate(returnPath, { replace: true });
   };
 
@@ -69,7 +67,7 @@ const LoginRegister = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
-              {showForgotPassword ? 'Reset Password' : 'Welcome to EventConnect Odisha'}
+              {showForgotPassword ? 'Reset Password' : 'Welcome to EventFul'}
             </h1>
             <p className="text-lg text-text-secondary max-w-2xl mx-auto">
               {showForgotPassword
@@ -144,10 +142,10 @@ const LoginRegister = () => {
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                 <Icon name="Calendar" size={20} color="white" />
               </div>
-              <span className="text-xl font-semibold">EventConnect Odisha</span>
+              <span className="text-xl font-semibold">EventFul</span>
             </div>
             <p className="text-gray-400 mb-2">
-              © {new Date().getFullYear()} EventConnect Odisha. All rights reserved.
+              © {new Date().getFullYear()} EventFul. All rights reserved.
             </p>
             <p className="text-gray-500 text-sm">
               Platform developed by <span className="text-primary font-medium">Gorakhnath Samal</span> and <span className="text-primary font-medium">Sumit Kumar Jena</span>

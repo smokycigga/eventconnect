@@ -86,26 +86,24 @@ const RegisterForm = ({ onSuccess, onSwitchToLogin }) => {
   const onSubmit = (data) => {
     setIsSubmitting(true);
     
-    // Check if user already exists (mock check)
+    // Simulate successful registration
     setTimeout(() => {
-      if (data.email === 'existing@example.com') {
-        setError('email', {
-          type: 'manual',
-          message: 'An account with this email already exists'
-        });
-        setIsSubmitting(false);
-      } else {
-        // Simulate successful registration
-        const userData = {
-          id: Date.now(),
-          name: data.name,
-          email: data.email,
-          phone: data.phone,
-          location: data.location,
-          token: 'new-user-auth-token-' + Date.now()
-        };
-        onSuccess(userData);
-      }
+      const userData = {
+        id: Date.now(),
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        location: data.location,
+        token: 'new-user-auth-token-' + Date.now(),
+        avatar: 'https://images.pexels.com/photos/1080213/pexels-photo-1080213.jpeg?w=100&h=100&fit=crop&crop=face'
+      };
+      
+      // Store authentication data
+      localStorage.setItem('authToken', userData.token);
+      localStorage.setItem('userData', JSON.stringify(userData));
+      
+      onSuccess(userData);
+      setIsSubmitting(false);
     }, 2000);
   };
 
@@ -120,7 +118,7 @@ const RegisterForm = ({ onSuccess, onSwitchToLogin }) => {
           Create Your Account
         </h2>
         <p className="text-text-secondary text-sm">
-          Join EventConnect Odisha and start booking trusted event organizers
+          Join EventFul and start booking trusted event organizers
         </p>
       </div>
 

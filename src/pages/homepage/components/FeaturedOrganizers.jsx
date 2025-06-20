@@ -8,7 +8,7 @@ const FeaturedOrganizers = () => {
     {
       id: 1,
       name: "Kalinga Events Co.",
-      thumbnail: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&h=300&fit=crop&crop=center",
+      thumbnail: "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?w=400&h=300&fit=crop&crop=center",
       location: "Bhubaneswar, Odisha",
       rating: 4.9,
       reviewCount: 127,
@@ -19,18 +19,18 @@ const FeaturedOrganizers = () => {
     {
       id: 2,
       name: "Utkal Celebration Masters",
-      thumbnail: "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?w=400&h=300&fit=crop&crop=center",
+      thumbnail: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?w=400&h=300&fit=crop&crop=center",
       location: "Cuttack, Odisha",
       rating: 4.8,
       reviewCount: 89,
-      tagline: "Bringing your celebration dreams to life with traditional touch",
+      tagline: "Bringing your celebration dreams to life with traditional Odia touch",
       specialties: ["Birthday Parties", "Anniversaries", "Baby Showers"],
       verified: true
     },
     {
       id: 3,
       name: "Odisha Premier Party Planners",
-      thumbnail: "https://images.pixabay.com/photo/2017/07/21/23/57/concert-2527495_1280.jpg?w=400&h=300&fit=crop&crop=center",
+      thumbnail: "https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?w=400&h=300&fit=crop&crop=center",
       location: "Puri, Odisha",
       rating: 4.7,
       reviewCount: 156,
@@ -41,7 +41,7 @@ const FeaturedOrganizers = () => {
     {
       id: 4,
       name: "Jagannath Dream Day Events",
-      thumbnail: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=400&h=300&fit=crop&crop=center",
+      thumbnail: "https://images.pexels.com/photos/1983046/pexels-photo-1983046.jpeg?w=400&h=300&fit=crop&crop=center",
       location: "Berhampur, Odisha",
       rating: 4.9,
       reviewCount: 203,
@@ -52,7 +52,7 @@ const FeaturedOrganizers = () => {
     {
       id: 5,
       name: "Sambalpuri Festive Functions",
-      thumbnail: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?w=400&h=300&fit=crop&crop=center",
+      thumbnail: "https://images.pexels.com/photos/1190299/pexels-photo-1190299.jpeg?w=400&h=300&fit=crop&crop=center",
       location: "Sambalpur, Odisha",
       rating: 4.6,
       reviewCount: 74,
@@ -63,7 +63,7 @@ const FeaturedOrganizers = () => {
     {
       id: 6,
       name: "Konark Luxury Event Designers",
-      thumbnail: "https://images.pixabay.com/photo/2016/11/23/15/48/audience-1853662_1280.jpg?w=400&h=300&fit=crop&crop=center",
+      thumbnail: "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?w=400&h=300&fit=crop&crop=center",
       location: "Konark, Odisha",
       rating: 4.8,
       reviewCount: 91,

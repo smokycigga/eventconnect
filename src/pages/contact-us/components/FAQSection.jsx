@@ -9,7 +9,7 @@ const FAQSection = () => {
     {
       id: 1,
       question: 'How does the mediated booking process work?',
-      answer: 'EventConnect Odisha acts as a trusted intermediary between clients and event organizers. We verify all organizers, handle booking arrangements, secure payments, and ensure quality service delivery. This protects both parties and guarantees professional service standards.'
+      answer: 'EventFul acts as a trusted intermediary between clients and event organizers. We verify all organizers, handle booking arrangements, secure payments, and ensure quality service delivery. This protects both parties and guarantees professional service standards.'
     },
     {
       id: 2,
@@ -60,7 +60,7 @@ const FAQSection = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-xl text-text-secondary">
-            Find answers to common questions about EventConnect Odisha's services and booking process
+            Find answers to common questions about EventFul's services and booking process
           </p>
         </div>
 
@@ -115,7 +115,7 @@ const FAQSection = () => {
                 <span>Call Support</span>
               </a>
               <a
-                href="mailto:support@eventconnect.odisha.in"
+                href="mailto:support@eventful.odisha.in"
                 className="inline-flex items-center justify-center space-x-2 bg-white border-2 border-primary text-primary px-6 py-3 rounded-xl font-medium hover:bg-primary hover:text-white transition-smooth hover-lift"
               >
                 <Icon name="Mail" size={20} />

@@ -22,7 +22,7 @@ const ContactUs = () => {
               Get in Touch
             </h1>
             <p className="text-xl text-text-secondary max-w-3xl mx-auto mb-8">
-              Connect with EventConnect Odisha for professional event planning services across Bhubaneswar and surrounding areas. We're here to help make your special moments unforgettable.
+              Connect with EventFul for professional event planning services across Bhubaneswar and surrounding areas. We're here to help make your special moments unforgettable.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm text-text-muted">
               <div className="flex items-center space-x-2">
@@ -79,10 +79,10 @@ const ContactUs = () => {
                 <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                   <Icon name="Calendar" size={20} color="white" />
                 </div>
-                <span className="text-xl font-semibold">EventConnect Odisha</span>
+                <span className="text-xl font-semibold">EventFul</span>
               </div>
               <p className="text-gray-400 mb-4 max-w-md">
-                Your trusted platform for connecting with professional event organizers across Odisha. We mediate every booking to ensure quality service and peace of mind.
+                Your trusted platform for connecting with professional event organizers across Bhubaneswar and Odisha. We mediate every booking to ensure quality service and peace of mind.
               </p>
               <div className="flex space-x-4">
                 <a href="#" className="text-gray-400 hover:text-white transition-smooth">
@@ -123,7 +123,7 @@ const ContactUs = () => {
           
           <div className="border-t border-gray-800 mt-8 pt-8 text-center">
             <p className="text-gray-400 mb-2">
-              © {new Date().getFullYear()} EventConnect Odisha. All rights reserved.
+              © {new Date().getFullYear()} EventFul. All rights reserved.
             </p>
             <p className="text-gray-500 text-sm">
               Platform developed by <span className="text-primary font-medium">Gorakhnath Samal</span> and <span className="text-primary font-medium">Sumit Kumar Jena</span>

@@ -20,22 +20,21 @@ const LoginForm = ({ onSuccess, onForgotPassword }) => {
     
     // Simulate API call
     setTimeout(() => {
-      // Mock authentication logic
-      if (data.emailOrPhone === 'demo@example.com' && data.password === 'demo123') {
-        const userData = {
-          id: 1,
-          name: 'Demo User',
-          email: data.emailOrPhone,
-          token: 'demo-auth-token-' + Date.now(),
-          location: 'Bhubaneswar, Odisha'
-        };
-        onSuccess(userData);
-      } else {
-        setError('root', {
-          type: 'manual',
-          message: 'Invalid email/phone or password. Try demo@example.com / demo123'
-        });
-      }
+      // Mock authentication logic - accept any email/password combination
+      const userData = {
+        id: Date.now(),
+        name: data.emailOrPhone.includes('@') ? data.emailOrPhone.split('@')[0] : 'User',
+        email: data.emailOrPhone.includes('@') ? data.emailOrPhone : `${data.emailOrPhone}@example.com`,
+        token: 'auth-token-' + Date.now(),
+        location: 'Bhubaneswar, Odisha',
+        avatar: 'https://images.pexels.com/photos/1080213/pexels-photo-1080213.jpeg?w=100&h=100&fit=crop&crop=face'
+      };
+      
+      // Store authentication data
+      localStorage.setItem('authToken', userData.token);
+      localStorage.setItem('userData', JSON.stringify(userData));
+      
+      onSuccess(userData);
       setIsSubmitting(false);
     }, 1500);
   };
@@ -51,7 +50,7 @@ const LoginForm = ({ onSuccess, onForgotPassword }) => {
           Sign In to Your Account
         </h2>
         <p className="text-text-secondary text-sm">
-          Access your EventConnect Odisha dashboard and manage your bookings
+          Access your EventFul dashboard and manage your bookings
         </p>
       </div>
 
@@ -70,10 +69,11 @@ const LoginForm = ({ onSuccess, onForgotPassword }) => {
         <div className="flex items-start space-x-2">
           <Icon name="Info" size={16} className="text-blue-600 mt-0.5" />
           <div>
-            <p className="text-blue-800 text-sm font-medium mb-1">Demo Credentials</p>
+            <p className="text-blue-800 text-sm font-medium mb-1">Demo Login</p>
             <p className="text-blue-700 text-xs">
-              Email: demo@example.com<br />
-              Password: demo123
+              Use any email and password to sign in. For example:<br />
+              Email: user@example.com<br />
+              Password: password123
             </p>
           </div>
         </div>

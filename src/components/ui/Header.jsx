@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Icon from '../AppIcon';
 
 const Header = () => {
@@ -8,7 +8,9 @@ const Header = () => {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userData, setUserData] = useState(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const navigationItems = [
     { label: 'Home', path: '/homepage', icon: 'Home' },
@@ -18,9 +20,20 @@ const Header = () => {
 
   const userMenuItems = [
     { label: 'My Dashboard', path: '/user-dashboard', icon: 'User' },
-    { label: 'My Bookings', path: '/bookings', icon: 'Calendar' },
+    { label: 'My Bookings', path: '/user-dashboard', icon: 'Calendar' },
     { label: 'Profile Settings', path: '/profile', icon: 'Settings' },
   ];
+
+  useEffect(() => {
+    // Check authentication status
+    const token = localStorage.getItem('authToken');
+    const storedUserData = localStorage.getItem('userData');
+    
+    if (token && storedUserData) {
+      setIsAuthenticated(true);
+      setUserData(JSON.parse(storedUserData));
+    }
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -39,7 +52,7 @@ const Header = () => {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      window.location.href = `/search-results?q=${encodeURIComponent(searchQuery)}`;
+      navigate(`/search-results?q=${encodeURIComponent(searchQuery)}`);
     }
   };
 
@@ -61,13 +74,17 @@ const Header = () => {
   };
 
   const handleLogin = () => {
-    setIsAuthenticated(true);
+    navigate('/login-register');
     setIsUserMenuOpen(false);
   };
 
   const handleLogout = () => {
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('userData');
     setIsAuthenticated(false);
+    setUserData(null);
     setIsUserMenuOpen(false);
+    navigate('/homepage');
   };
 
   const isActiveRoute = (path) => {
@@ -85,7 +102,7 @@ const Header = () => {
                 <Icon name="Calendar" size={20} color="white" />
               </div>
               <span className="text-xl font-semibold text-text-primary hidden sm:block">
-                EventConnect Odisha
+                EventFul
               </span>
             </Link>
           </div>
@@ -139,8 +156,17 @@ const Header = () => {
                     className="flex items-center space-x-2 text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-primary transition-smooth hover-lift"
                   >
                     <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-                      <Icon name="User" size={16} className="text-primary" />
+                      {userData?.avatar ? (
+                        <img 
+                          src={userData.avatar} 
+                          alt={userData.name} 
+                          className="w-8 h-8 rounded-full object-cover"
+                        />
+                      ) : (
+                        <Icon name="User" size={16} className="text-primary" />
+                      )}
                     </div>
+                    <span className="text-text-primary font-medium">{userData?.name?.split(' ')[0] || 'User'}</span>
                     <Icon name="ChevronDown" size={16} className="text-text-muted" />
                   </button>
 
@@ -172,18 +198,18 @@ const Header = () => {
                 </div>
               ) : (
                 <div className="flex items-center space-x-4">
-                  <Link
-                    to="/login-register"
+                  <button
+                    onClick={handleLogin}
                     className="text-text-secondary hover:text-text-primary transition-smooth"
                   >
                     Sign In
-                  </Link>
-                  <Link
-                    to="/login-register"
+                  </button>
+                  <button
+                    onClick={handleLogin}
                     className="bg-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-700 transition-smooth hover-lift"
                   >
                     Sign Up
-                  </Link>
+                  </button>
                 </div>
               )}
             </div>
@@ -261,6 +287,20 @@ const Header = () => {
 
               {isAuthenticated ? (
                 <div className="space-y-2">
+                  <div className="flex items-center space-x-3 px-3 py-2">
+                    <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
+                      {userData?.avatar ? (
+                        <img 
+                          src={userData.avatar} 
+                          alt={userData.name} 
+                          className="w-8 h-8 rounded-full object-cover"
+                        />
+                      ) : (
+                        <Icon name="User" size={16} className="text-primary" />
+                      )}
+                    </div>
+                    <span className="text-text-primary font-medium">{userData?.name || 'User'}</span>
+                  </div>
                   {userMenuItems.map((item) => (
                     <Link
                       key={item.path}
@@ -285,20 +325,24 @@ const Header = () => {
                 </div>
               ) : (
                 <div className="space-y-2">
-                  <Link
-                    to="/login-register"
+                  <button
+                    onClick={() => {
+                      handleLogin();
+                      setIsMobileMenuOpen(false);
+                    }}
                     className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-text-secondary hover:text-text-primary hover:bg-gray-50 transition-smooth"
-                    onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Sign In
-                  </Link>
-                  <Link
-                    to="/login-register"
+                  </button>
+                  <button
+                    onClick={() => {
+                      handleLogin();
+                      setIsMobileMenuOpen(false);
+                    }}
                     className="w-full bg-primary text-white px-3 py-2 rounded-md text-base font-medium hover:bg-primary-700 transition-smooth text-center block"
-                    onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Sign Up
-                  </Link>
+                  </button>
                 </div>
               )}
             </div>

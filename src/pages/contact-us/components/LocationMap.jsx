@@ -9,7 +9,7 @@ const LocationMap = () => {
   const officeLocations = [
     {
       id: 1,
-      name: 'EventConnect Odisha - Main Office',
+      name: 'EventFul - Main Office',
       address: 'Plot No. 123, Saheed Nagar, Bhubaneswar, Odisha 751007',
       phone: '+91 674 XXX XXXX',
       type: 'main',
@@ -18,7 +18,7 @@ const LocationMap = () => {
     },
     {
       id: 2,
-      name: 'EventConnect Odisha - Cuttack Branch',
+      name: 'EventFul - Cuttack Branch',
       address: 'Buxi Bazaar, Cuttack, Odisha 753001',
       phone: '+91 671 XXX XXXX',
       type: 'branch',

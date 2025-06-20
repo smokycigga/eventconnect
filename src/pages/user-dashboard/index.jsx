@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Icon from 'components/AppIcon';
 import Image from 'components/AppImage';
 import Breadcrumb from 'components/ui/Breadcrumb';
@@ -8,61 +8,56 @@ const UserDashboard = () => {
   const [activeTab, setActiveTab] = useState('bookings');
   const [bookingFilter, setBookingFilter] = useState('all');
   const [isEditing, setIsEditing] = useState(false);
-  const [userProfile, setUserProfile] = useState({
-    name: "Sarah Johnson",
-    email: "sarah.johnson@email.com",
-    phone: "+1 (555) 123-4567",
-    location: "New York, NY",
-    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face"
-  });
+  const [userProfile, setUserProfile] = useState(null);
+  const navigate = useNavigate();
 
   const mockBookings = [
     {
       id: 1,
       eventDate: "2024-02-15",
-      organizerName: "Elite Events Co.",
-      organizerImage: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=80&h=80&fit=crop",
-      location: "Manhattan, NY",
+      organizerName: "Kalinga Events Co.",
+      organizerImage: "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?w=80&h=80&fit=crop",
+      location: "Bhubaneswar, Odisha",
       eventType: "Corporate Event",
       status: "confirmed",
       bookingDate: "2024-01-20",
-      totalAmount: "$2,500",
+      totalAmount: "₹2,50,000",
       description: "Annual company retreat planning and coordination"
     },
     {
       id: 2,
       eventDate: "2024-03-08",
-      organizerName: "Dream Weddings NYC",
-      organizerImage: "https://images.unsplash.com/photo-1519741497674-611481863552?w=80&h=80&fit=crop",
-      location: "Brooklyn, NY",
+      organizerName: "Jagannath Dream Day Events",
+      organizerImage: "https://images.pexels.com/photos/1983046/pexels-photo-1983046.jpeg?w=80&h=80&fit=crop",
+      location: "Berhampur, Odisha",
       eventType: "Wedding",
       status: "pending",
       bookingDate: "2024-01-25",
-      totalAmount: "$5,800",
+      totalAmount: "₹5,80,000",
       description: "Complete wedding planning and day-of coordination"
     },
     {
       id: 3,
       eventDate: "2024-01-10",
-      organizerName: "Party Perfect",
-      organizerImage: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=80&h=80&fit=crop",
-      location: "Queens, NY",
+      organizerName: "Sambalpuri Festive Functions",
+      organizerImage: "https://images.pexels.com/photos/1190299/pexels-photo-1190299.jpeg?w=80&h=80&fit=crop",
+      location: "Sambalpur, Odisha",
       eventType: "Birthday Party",
       status: "completed",
       bookingDate: "2023-12-15",
-      totalAmount: "$1,200",
+      totalAmount: "₹1,20,000",
       description: "Kids birthday party with entertainment and decorations"
     },
     {
       id: 4,
       eventDate: "2024-01-05",
-      organizerName: "Corporate Solutions",
-      organizerImage: "https://images.unsplash.com/photo-1551818255-e6e10975cd17?w=80&h=80&fit=crop",
-      location: "Manhattan, NY",
+      organizerName: "Odisha Premier Party Planners",
+      organizerImage: "https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?w=80&h=80&fit=crop",
+      location: "Puri, Odisha",
       eventType: "Conference",
       status: "cancelled",
       bookingDate: "2023-12-20",
-      totalAmount: "$3,200",
+      totalAmount: "₹3,20,000",
       description: "Tech conference organization and management"
     }
   ];
@@ -70,19 +65,19 @@ const UserDashboard = () => {
   const mockFavorites = [
     {
       id: 1,
-      name: "Elite Events Co.",
-      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=300&h=200&fit=crop",
-      location: "Manhattan, NY",
+      name: "Kalinga Events Co.",
+      image: "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?w=300&h=200&fit=crop",
+      location: "Bhubaneswar, Odisha",
       rating: 4.9,
       reviewCount: 127,
-      tagline: "Creating unforgettable corporate experiences",
+      tagline: "Creating unforgettable moments with Odia elegance",
       specialties: ["Corporate Events", "Conferences", "Team Building"]
     },
     {
       id: 2,
-      name: "Dream Weddings NYC",
-      image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=300&h=200&fit=crop",
-      location: "Brooklyn, NY",
+      name: "Jagannath Dream Day Events",
+      image: "https://images.pexels.com/photos/1983046/pexels-photo-1983046.jpeg?w=300&h=200&fit=crop",
+      location: "Berhampur, Odisha",
       rating: 4.8,
       reviewCount: 89,
       tagline: "Making your dream wedding come true",
@@ -90,15 +85,28 @@ const UserDashboard = () => {
     },
     {
       id: 3,
-      name: "Celebration Central",
-      image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=300&h=200&fit=crop",
-      location: "Manhattan, NY",
+      name: "Utkal Celebration Masters",
+      image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?w=300&h=200&fit=crop",
+      location: "Cuttack, Odisha",
       rating: 4.7,
       reviewCount: 156,
       tagline: "Every celebration deserves perfection",
       specialties: ["Birthday Parties", "Anniversaries", "Social Events"]
     }
   ];
+
+  useEffect(() => {
+    // Check authentication
+    const token = localStorage.getItem('authToken');
+    const userData = localStorage.getItem('userData');
+    
+    if (!token || !userData) {
+      navigate('/login-register', { state: { from: location } });
+      return;
+    }
+
+    setUserProfile(JSON.parse(userData));
+  }, [navigate]);
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -137,7 +145,8 @@ const UserDashboard = () => {
 
   const handleProfileSave = () => {
     setIsEditing(false);
-    // Mock save functionality
+    // Update localStorage with new profile data
+    localStorage.setItem('userData', JSON.stringify(userProfile));
   };
 
   const handleRemoveFavorite = (organizerId) => {
@@ -147,6 +156,7 @@ const UserDashboard = () => {
 
   const tabs = [
     { id: 'bookings', label: 'My Bookings', icon: 'Calendar' },
+    { id: 'profile', label: 'Profile', icon: 'User' },
     { id: 'settings', label: 'Account Settings', icon: 'Settings' },
     { id: 'favorites', label: 'Favorites', icon: 'Heart' }
   ];
@@ -159,6 +169,17 @@ const UserDashboard = () => {
     { id: 'cancelled', label: 'Cancelled' }
   ];
 
+  if (!userProfile) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-text-secondary">Loading your dashboard...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -169,7 +190,7 @@ const UserDashboard = () => {
           <div className="flex items-center space-x-4">
             <div className="w-16 h-16 rounded-full overflow-hidden bg-primary-100">
               <Image
-                src={userProfile.avatar}
+                src={userProfile.avatar || "https://images.pexels.com/photos/1080213/pexels-photo-1080213.jpeg?w=150&h=150&fit=crop&crop=face"}
                 alt={userProfile.name}
                 className="w-full h-full object-cover"
               />
@@ -210,12 +231,12 @@ const UserDashboard = () => {
           {/* Mobile Tabs */}
           <div className="lg:hidden mb-6">
             <div className="bg-surface rounded-lg shadow-card p-2">
-              <div className="flex space-x-1">
+              <div className="flex space-x-1 overflow-x-auto">
                 {tabs.map((tab) => (
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`flex-1 flex items-center justify-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-smooth ${
+                    className={`flex items-center justify-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-smooth whitespace-nowrap ${
                       activeTab === tab.id
                         ? 'bg-primary text-white' :'text-text-secondary hover:text-text-primary hover:bg-gray-50'
                     }`}
@@ -302,7 +323,7 @@ const UserDashboard = () => {
                                   Event: {new Date(booking.eventDate).toLocaleDateString()}
                                 </span>
                                 <span className="flex items-center">
-                                  <Icon name="DollarSign" size={14} className="mr-1" />
+                                  <Icon name="IndianRupee" size={14} className="mr-1" />
                                   {booking.totalAmount}
                                 </span>
                               </div>
@@ -349,13 +370,13 @@ const UserDashboard = () => {
               </div>
             )}
 
-            {/* Account Settings Tab */}
-            {activeTab === 'settings' && (
+            {/* Profile Tab */}
+            {activeTab === 'profile' && (
               <div className="space-y-6">
                 <div className="bg-surface rounded-lg shadow-card p-6">
                   <div className="flex items-center justify-between mb-6">
                     <h2 className="text-xl font-semibold text-text-primary">
-                      Account Settings
+                      My Profile
                     </h2>
                     {!isEditing ? (
                       <button
@@ -387,7 +408,7 @@ const UserDashboard = () => {
                     <div className="flex items-center space-x-6">
                       <div className="w-20 h-20 rounded-full overflow-hidden bg-primary-100">
                         <Image
-                          src={userProfile.avatar}
+                          src={userProfile.avatar || "https://images.pexels.com/photos/1080213/pexels-photo-1080213.jpeg?w=150&h=150&fit=crop&crop=face"}
                           alt={userProfile.name}
                           className="w-full h-full object-cover"
                         />
@@ -440,12 +461,12 @@ const UserDashboard = () => {
                         {isEditing ? (
                           <input
                             type="tel"
-                            value={userProfile.phone}
+                            value={userProfile.phone || ''}
                             onChange={(e) => setUserProfile({...userProfile, phone: e.target.value})}
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-smooth"
                           />
                         ) : (
-                          <p className="text-text-secondary">{userProfile.phone}</p>
+                          <p className="text-text-secondary">{userProfile.phone || 'Not provided'}</p>
                         )}
                       </div>
 
@@ -456,18 +477,23 @@ const UserDashboard = () => {
                         {isEditing ? (
                           <input
                             type="text"
-                            value={userProfile.location}
+                            value={userProfile.location || ''}
                             onChange={(e) => setUserProfile({...userProfile, location: e.target.value})}
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-smooth"
                           />
                         ) : (
-                          <p className="text-text-secondary">{userProfile.location}</p>
+                          <p className="text-text-secondary">{userProfile.location || 'Not provided'}</p>
                         )}
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
+            )}
 
+            {/* Account Settings Tab */}
+            {activeTab === 'settings' && (
+              <div className="space-y-6">
                 {/* Notification Preferences */}
                 <div className="bg-surface rounded-lg shadow-card p-6">
                   <h3 className="text-lg font-semibold text-text-primary mb-4">

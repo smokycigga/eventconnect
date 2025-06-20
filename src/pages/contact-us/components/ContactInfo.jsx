@@ -8,7 +8,7 @@ const ContactInfo = () => {
       icon: 'MapPin',
       title: 'Office Address',
       details: [
-        'EventConnect Odisha',
+        'EventFul',
         'Plot No. 123, Saheed Nagar',
         'Bhubaneswar, Odisha 751007',
         'India'
@@ -35,13 +35,13 @@ const ContactInfo = () => {
       icon: 'Mail',
       title: 'Email Addresses',
       details: [
-        'info@eventconnect.odisha.in',
-        'support@eventconnect.odisha.in',
-        'partnerships@eventconnect.odisha.in'
+        'info@eventful.odisha.in',
+        'support@eventful.odisha.in',
+        'partnerships@eventful.odisha.in'
       ],
       action: {
         label: 'Send Email',
-        href: 'mailto:info@eventconnect.odisha.in'
+        href: 'mailto:info@eventful.odisha.in'
       }
     },
     {
