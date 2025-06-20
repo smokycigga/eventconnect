@@ -18,7 +18,7 @@ const BookingConfirmation = () => {
     organizer: {
       name: "Elite Event Planners",
       image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&h=300&fit=crop",
-      location: "Mumbai, Maharashtra"
+      location: "Bhubaneswar,Odisha"
     },
     eventDetails: {
       date: "2024-02-15",
