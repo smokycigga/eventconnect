@@ -85,7 +85,7 @@ const ForgotPassword = ({ onBackToLogin }) => {
               </p>
               <ul className="text-blue-700 text-sm space-y-1">
                 <li>• Check your email inbox</li>
-                <li>• Look for an email from EventConnect Odisha</li>
+                <li>• Look for an email from EventFul Odisha</li>
                 <li>• Click the reset link in the email</li>
                 <li>• Check your spam folder if you don't see it</li>
               </ul>
