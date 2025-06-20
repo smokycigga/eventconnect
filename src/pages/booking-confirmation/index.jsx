@@ -316,7 +316,7 @@ const BookingConfirmation = () => {
         {/* Customer Testimonials */}
         <div className="bg-surface rounded-xl shadow-card p-6 md:p-8">
           <h2 className="text-xl font-semibold text-text-primary mb-6 text-center">
-            What Our Customers Say About EventConnect
+            What Our Customers Say About EventFul
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {testimonials.map((testimonial) => (
