@@ -141,7 +141,7 @@ const BookingConfirmation = () => {
             Booking Request Submitted!
           </h1>
           <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            Thank you for choosing EventConnect. Your booking request has been successfully submitted and is now being processed by our team.
+            Thank you for choosing EventFul. Your booking request has been successfully submitted and is now being processed by our team.
           </p>
         </div>
 
